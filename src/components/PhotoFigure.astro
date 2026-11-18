@@ -13,7 +13,7 @@ const src =
     : `${import.meta.env.BASE_URL}images/stock/${file}`;
 ---
 
-<figure class="m-0 w-fit max-w-full border-0 bg-transparent p-0">
+<figure class="m-0 w-fit max-w-full overflow-hidden rounded-[1.8rem] bg-transparent p-0" style="max-width: 5cm">
   <img
     src={src}
     alt={alt}
@@ -21,7 +21,7 @@ const src =
     width="1200"
     height="800"
     loading="lazy"
-    class="block h-auto max-w-full object-contain"
+    class="block h-auto w-full max-w-full rounded-[1.8rem] object-contain"
     style="max-width: 5cm; height: auto; object-fit: contain"
   />
 </figure>
