@@ -4,7 +4,7 @@
 
 :root {
   --radius: 0.75rem;
-  --background: #f6f4ef;
+  --background: #e6ebee;
   --foreground: #1c2430;
   --card: #ffffff;
   --card-foreground: #1c2430;
@@ -31,23 +31,23 @@
 }
 
 .dark {
-  --background: #07111c;
-  --foreground: #f8fafc;
-  --card: #0b1f33;
-  --card-foreground: #f8fafc;
-  --popover: #0b1f33;
-  --popover-foreground: #f8fafc;
-  --primary: #0b1f33;
-  --primary-foreground: #f8fafc;
-  --secondary: #132c44;
-  --secondary-foreground: #f8fafc;
-  --muted: #132c44;
-  --muted-foreground: #c5ccd6;
-  --accent: #2f6bff;
-  --accent-foreground: #f8fafc;
-  --border: #2a3e54;
-  --input: #2a3e54;
-  --ring: #2f6bff;
+  --background: #08090b;
+  --foreground: #e7e9ec;
+  --card: #141618;
+  --card-foreground: #e7e9ec;
+  --popover: #141618;
+  --popover-foreground: #e7e9ec;
+  --primary: #c4894f;
+  --primary-foreground: #0b0c0e;
+  --secondary: #141618;
+  --secondary-foreground: #e7e9ec;
+  --muted: #141618;
+  --muted-foreground: #b7b1a8;
+  --accent: #c4894f;
+  --accent-foreground: #0b0c0e;
+  --border: #5c4a38;
+  --input: #5c4a38;
+  --ring: #e0c48a;
   --banner: #fef3c7;
   --banner-foreground: #b45309;
   --whatsapp: #128c7e;
@@ -100,12 +100,28 @@
 
   body {
     font-family: var(--font-sans);
-    background:
-      radial-gradient(1200px 500px at 90% -10%, rgb(47 107 255 / 10%), transparent 55%),
-      radial-gradient(900px 420px at -10% 20%, rgb(11 31 51 / 8%), transparent 50%),
-      var(--background);
     color: var(--foreground);
   }
+}
+
+html:not(.dark),
+html:not(.dark) body {
+  background-color: #e6ebee;
+  background-image:
+    linear-gradient(115deg, rgb(255 255 255 / 0.28) 0%, transparent 46%),
+    linear-gradient(155deg, #f7f8fa 0%, #e6ebee 42%, #f3e6da 70%, #f7f8fa 100%);
+  background-attachment: fixed;
+}
+
+html.dark,
+html.dark body {
+  background-color: #08090b;
+  background-image: linear-gradient(165deg, #101114 0%, #08090b 55%, #16130f 100%);
+  background-attachment: fixed;
+}
+
+html.dark :is(h1, h2, h3, h4) {
+  color: #e0c48a;
 }
 
 html {

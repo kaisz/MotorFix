@@ -3,13 +3,17 @@ interface Props {
   file: string;
   altKey: string;
   alt: string;
+  folder?: "stock" | "original";
 }
 
-const { file, altKey, alt } = Astro.props;
-const src = `${import.meta.env.BASE_URL}images/stock/${file}`;
+const { file, altKey, alt, folder = "stock" } = Astro.props;
+const src =
+  folder === "original"
+    ? `${import.meta.env.BASE_URL}images/${file}`
+    : `${import.meta.env.BASE_URL}images/stock/${file}`;
 ---
 
-<figure class="overflow-hidden rounded-[1.2rem] border border-aluminum bg-muted" style="max-width: 5cm">
+<figure class="m-0 w-fit max-w-full border-0 bg-transparent p-0">
   <img
     src={src}
     alt={alt}
@@ -17,7 +21,7 @@ const src = `${import.meta.env.BASE_URL}images/stock/${file}`;
     width="1200"
     height="800"
     loading="lazy"
-    style="max-width: 5cm; height: auto"
-    class="block w-full"
+    class="block h-auto max-w-full object-contain"
+    style="max-width: 5cm; height: auto; object-fit: contain"
   />
 </figure>
