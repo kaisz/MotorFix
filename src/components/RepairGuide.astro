@@ -1,14 +1,11 @@
 ---
-const base = import.meta.env.BASE_URL;
-const motorPhoto = `${base}images/electric-motor.jpg`;
-const scooterPhoto = `${base}images/scooter-wheel.jpg`;
-const trottinettePhoto = `${base}images/trottinette-motor.jpg`;
+import PhotoFigure from "./PhotoFigure.astro";
 ---
 
 <section id="fonctionnement" class="scroll-mt-36 mt-16">
   <div class="overflow-hidden rounded-[1.8rem] border border-aluminum bg-card">
     <div class="h-0.5 bg-copper" aria-hidden="true"></div>
-    <div class="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+    <div class="p-6 sm:p-8">
       <div>
         <p class="text-sm font-semibold tracking-[0.16em] text-primary uppercase dark:text-primary-foreground" data-i18n="guide.how.kicker">
           Fonctionnement
@@ -26,49 +23,54 @@ const trottinettePhoto = `${base}images/trottinette-motor.jpg`;
         <p class="mt-3 leading-7" data-i18n="guide.how.interiorLead">
           Cinq pièces reviennent sans cesse. Chacune a un rôle simple.
         </p>
-        <dl class="mt-4 grid gap-4">
+        <div class="mt-4 grid gap-4">
           <div>
             <dt class="text-sm font-semibold" data-i18n="guide.how.statorTitle">Stator</dt>
             <dd class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.how.stator">
               C'est la partie fixe. Elle porte le bobinage, ou parfois les aimants, et produit le champ magnétique qui fait tourner le reste.
             </dd>
+            <div class="mt-3">
+              <PhotoFigure file="motor-workshop.jpg" altKey="guide.shots.stator" alt="Moteur électrique posé sur un établi d'atelier." author="Freek Wolsink" href="https://www.pexels.com/photo/industrial-motor-on-wooden-surface-in-workshop-34194564/" />
+            </div>
           </div>
           <div>
             <dt class="text-sm font-semibold" data-i18n="guide.how.rotorTitle">Rotor</dt>
             <dd class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.how.rotor">
               C'est la partie qui tourne, liée à l'arbre. Elle entraîne la poulie, la roue ou l'outil.
             </dd>
+            <div class="mt-3">
+              <PhotoFigure file="servo-motor.jpg" altKey="guide.shots.rotor" alt="Gros plan d'un petit moteur et de ses pièces." author="Tanha Tamanna Syed" href="https://www.pexels.com/photo/close-up-of-a-servo-motor-with-components-35652464/" />
+            </div>
           </div>
           <div>
             <dt class="text-sm font-semibold" data-i18n="guide.how.magnetsTitle">Aimants</dt>
             <dd class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.how.magnets">
               Ils créent un champ permanent. Sur un moteur sans balais, ils sont souvent fixés sur le rotor.
             </dd>
+            <div class="mt-3">
+              <PhotoFigure file="industrial-magnet.jpg" altKey="guide.shots.magnets" alt="Aimant industriel soulevant du métal." author="Willians Huerta" href="https://www.pexels.com/photo/industrial-magnet-in-recycling-facility-36397863/" />
+            </div>
           </div>
           <div>
             <dt class="text-sm font-semibold" data-i18n="guide.how.windingTitle">Bobinage</dt>
             <dd class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.how.winding">
               Ce sont des fils de cuivre isolés, enroulés en bobines. Le courant y passe et pousse le rotor.
             </dd>
+            <div class="mt-3">
+              <PhotoFigure file="copper-wires.jpg" altKey="guide.shots.winding" alt="Gros plan de fils de cuivre." author="Alex Tepetidis" href="https://www.pexels.com/photo/close-up-photo-of-copper-wires-5279317/" />
+            </div>
           </div>
           <div>
             <dt class="text-sm font-semibold" data-i18n="guide.how.bearingsTitle">Roulements</dt>
             <dd class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.how.bearings">
               Ils guident l'arbre. Usés, ils font grincer le moteur, le font chauffer ou lui donnent du jeu.
             </dd>
+            <div class="mt-3">
+              <PhotoFigure file="ball-bearings.jpg" altKey="guide.shots.bearings" alt="Gros plan de roulements à billes en métal." author="Kostiantyn Klymovets" href="https://www.pexels.com/photo/macro-shot-of-metal-ball-bearings-in-ukraine-35568191/" />
+            </div>
           </div>
-        </dl>
+        </div>
       </div>
-      <figure class="overflow-hidden rounded-[1.4rem] border border-aluminum bg-muted">
-        <img
-          src={motorPhoto}
-          width="1200"
-          height="900"
-          alt="Moteur électrique ouvert : bobinage en cuivre, rotor et roulements sur un établi."
-          data-i18n-alt="guide.how.photoAlt"
-          class="aspect-[4/3] w-full object-cover"
-        />
-      </figure>
     </div>
     <div class="border-t border-aluminum px-6 py-6 sm:px-8">
       <h3 class="font-display text-2xl font-semibold" data-i18n="guide.how.typesTitle">
@@ -113,6 +115,9 @@ const trottinettePhoto = `${base}images/trottinette-motor.jpg`;
       <p class="mt-3 max-w-3xl text-sm leading-6 text-muted-foreground" data-i18n="guide.repair.demontage">
         On photographie les connecteurs et on repère le sens des fils avant d'ouvrir. L'alimentation et la batterie sont coupées. Les carters et les vis sortent en notant leur place et leur longueur. Le rotor se retire sans forcer les aimants ni rayer le bobinage. On regarde ensuite les roulements, le jeu de l'arbre, une odeur de brûlé ou un cuivre noirci.
       </p>
+      <div class="mt-4 max-w-xl">
+        <PhotoFigure file="servo-parts.jpg" altKey="guide.shots.demontage" alt="Petit moteur démonté, avec ses pièces posées à côté." author="Tanha Tamanna Syed" href="https://www.pexels.com/photo/close-up-of-mg90s-micro-servo-motor-with-accessories-35652334/" />
+      </div>
 
       <h3 id="bobinage" class="scroll-mt-36 mt-8 font-display text-2xl font-semibold" data-i18n="guide.repair.bobinageTitle">
         Réparation du bobinage
@@ -134,6 +139,10 @@ const trottinettePhoto = `${base}images/trottinette-motor.jpg`;
           Le contrôle se fait au multimètre : continuité, résistance des phases, et isolement vers la masse. L'isolation se vérifie avant de refermer.
         </p>
       </div>
+      <div class="mt-4 grid max-w-3xl gap-4 sm:grid-cols-2">
+        <PhotoFigure file="copper-wires.jpg" altKey="guide.shots.bobinage" alt="Fils de cuivre, la matière d'un bobinage." author="Alex Tepetidis" href="https://www.pexels.com/photo/close-up-photo-of-copper-wires-5279317/" />
+        <PhotoFigure file="multimeter.jpg" altKey="guide.shots.meter" alt="Contrôle d'une carte au multimètre." author="Bulat843" href="https://www.pexels.com/photo/technician-repairing-circuit-board-with-multimeter-38264253/" />
+      </div>
 
       <h3 id="commande" class="scroll-mt-36 mt-8 font-display text-2xl font-semibold" data-i18n="guide.repair.commandeTitle">
         Partie électronique de commande
@@ -142,34 +151,28 @@ const trottinettePhoto = `${base}images/trottinette-motor.jpg`;
         Sur les roues de scooter électrique, les trottinettes et les autres moteurs du site, le moteur ne décide pas tout seul. Une électronique de commande l'alimente.
       </p>
       <div class="mt-6 grid gap-4 lg:grid-cols-2">
-        <figure class="overflow-hidden rounded-[1.2rem] border border-aluminum">
-          <img
-            src={scooterPhoto}
-            width="1200"
-            height="900"
-            alt="Roue de scooter électrique avec moteur dans le moyeu et câble de puissance."
-            data-i18n-alt="guide.repair.scooterAlt"
-            class="aspect-[4/3] w-full object-cover"
-          />
-        </figure>
-        <figure class="overflow-hidden rounded-[1.2rem] border border-aluminum">
-          <img
-            src={trottinettePhoto}
-            width="1200"
-            height="900"
-            alt="Moteur de trottinette ouvert, avec aimants et bobinage en cuivre visibles."
-            data-i18n-alt="guide.repair.trottinetteAlt"
-            class="aspect-[4/3] w-full object-cover"
-          />
-        </figure>
+        <PhotoFigure file="ebike-drivetrain.jpg" altKey="guide.shots.scooter" alt="Gros plan d'une transmission de vélo électrique." author="Pexels" href="https://www.pexels.com/photo/close-up-of-electric-bicycle-drivetrain-32139241/" />
+        <PhotoFigure file="board-components.jpg" altKey="guide.shots.hall" alt="Gros plan de composants sur une carte." author="Jakub Pabis" href="https://www.pexels.com/photo/close-up-view-of-electronic-circuit-board-components-36169775/" />
       </div>
-      <ul class="mt-4 grid max-w-3xl gap-3 text-sm leading-6 text-muted-foreground">
-        <li data-i18n="guide.repair.controller">Le contrôleur envoie le courant dans les bonnes bobines au bon moment. S'il est en cause, le moteur peut rester muet ou avancer par à-coups.</li>
-        <li data-i18n="guide.repair.hall">Les capteurs Hall indiquent la position du rotor. Quand ils lâchent, le démarrage devient saccadé ou impossible, alors que le bobinage est encore sain.</li>
-        <li data-i18n="guide.repair.regulator">Le régulateur maintient une tension stable pour les circuits de commande. Une panne ici coupe l'assistance même si le moteur tournerait encore.</li>
-        <li data-i18n="guide.repair.wiring">La connectique compte autant : cosses oxydées, fils cassés dans la gaine, prises qui chauffent.</li>
-        <li data-i18n="guide.repair.test">On teste, puis on remplace la pièce désignée par les mesures. On ne change pas le moteur entier si le défaut est dans la commande.</li>
-      </ul>
+      <div class="mt-4 grid max-w-3xl gap-5 text-sm leading-6 text-muted-foreground">
+        <div>
+          <p data-i18n="guide.repair.controller">Le contrôleur envoie le courant dans les bonnes bobines au bon moment. S'il est en cause, le moteur peut rester muet ou avancer par à-coups.</p>
+          <div class="mt-3">
+            <PhotoFigure file="controller-board.jpg" altKey="guide.shots.controller" alt="Carte électronique avec puces et ports, du genre de celles qui pilotent un circuit." author="Craig Dennis" href="https://www.pexels.com/photo/green-and-grey-circuit-board-57007/" />
+          </div>
+        </div>
+        <div>
+          <p data-i18n="guide.repair.hall">Les capteurs Hall indiquent la position du rotor. Quand ils lâchent, le démarrage devient saccadé ou impossible, alors que le bobinage est encore sain.</p>
+        </div>
+        <div>
+          <p data-i18n="guide.repair.regulator">Le régulateur maintient une tension stable pour les circuits de commande. Une panne ici coupe l'assistance même si le moteur tournerait encore.</p>
+          <div class="mt-3">
+            <PhotoFigure file="regulator-board.jpg" altKey="guide.shots.regulator" alt="Autre carte de commande posée sur un plan de travail." author="Tanha Tamanna Syed" href="https://www.pexels.com/photo/electronic-circuit-board-with-components-in-studio-setup-35652416/" />
+          </div>
+        </div>
+        <p data-i18n="guide.repair.wiring">La connectique compte autant : cosses oxydées, fils cassés dans la gaine, prises qui chauffent.</p>
+        <p data-i18n="guide.repair.test">On teste, puis on remplace la pièce désignée par les mesures. On ne change pas le moteur entier si le défaut est dans la commande.</p>
+      </div>
 
       <h3 id="cartes" class="scroll-mt-36 mt-10 font-display text-2xl font-semibold" data-i18n="guide.repair.boardTitle">
         Réparation des cartes électroniques
@@ -183,24 +186,38 @@ const trottinettePhoto = `${base}images/trottinette-motor.jpg`;
           <p class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.repair.diag">
             On cherche d'abord ce qui se voit : un composant grillé, noirci ou fendu ; une soudure froide, terne ou fissurée, qui lâche par intermittence ; une piste coupée, c'est-à-dire le fin chemin de cuivre du circuit interrompu. Ces indices orientent le test. Ils ne suffisent pas à tout remplacer.
           </p>
+          <div class="mt-3">
+            <PhotoFigure file="board-repair.jpg" altKey="guide.shots.diag" alt="Carte observée à la loupe pendant une réparation." author="Karolina Grabowska" href="https://www.pexels.com/photo/repairing-of-circuit-board-7286018/" />
+          </div>
         </div>
         <div>
           <h4 class="text-base font-semibold" data-i18n="guide.repair.waterTitle">Infiltration d'eau</h4>
           <p class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.repair.water">
             L'eau laisse de la corrosion, souvent verte ou blanche, et des pannes qui vont et viennent. La carte se nettoie à l'alcool isopropylique, puis elle doit sécher complètement avant le test. Si l'on remet sous tension trop tôt, les sels restants reviennent, et le défaut aussi.
           </p>
+          <div class="mt-3 grid gap-4 sm:grid-cols-2">
+            <PhotoFigure file="water-splash.jpg" altKey="guide.shots.water" alt="Eau projetée sur un appareil électronique." author="imadclicks" href="https://www.pexels.com/photo/splash-of-water-on-samsung-s22-ultra-11772518/" />
+            <PhotoFigure file="isopropyl.jpg" altKey="guide.shots.clean" alt="Bouteille d'alcool isopropylique et chiffons." author="Donny Fuego" href="https://www.pexels.com/photo/a-pair-of-tissue-rolls-and-a-bottle-of-isopropyl-alcohol-on-a-wooden-bench-4121856/" />
+          </div>
         </div>
         <div>
           <h4 class="text-base font-semibold" data-i18n="guide.repair.partsTitle">Remplacement de composants</h4>
           <p class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.repair.parts">
             On dessoude le composant mort et on soude le neuf, du même type. Les composants SMD sont posés à la surface. Les composants traversants ont des pattes qui passent dans des trous. Il faut un fer adapté, de la tresse à dessouder ou une pompe, du flux, et une loupe. On ne remplace que ce que le diagnostic désigne.
           </p>
+          <div class="mt-3 grid gap-4 sm:grid-cols-2">
+            <PhotoFigure file="smd-chip.jpg" altKey="guide.shots.smd" alt="Main tenant une puce électronique." author="Thirdman" href="https://www.pexels.com/photo/a-person-holding-a-micro-chip-7180749/" />
+            <PhotoFigure file="soldering.jpg" altKey="guide.shots.solder" alt="Fer à souder sur une carte électronique." author="Mikhail Nilov" href="https://www.pexels.com/photo/a-person-using-a-soldering-iron-on-a-printed-circuit-board-9241777/" />
+          </div>
         </div>
         <div>
           <h4 class="text-base font-semibold" data-i18n="guide.repair.firmwareTitle">Mise à jour des firmwares</h4>
           <p class="mt-1 text-sm leading-6 text-muted-foreground" data-i18n="guide.repair.firmware">
             Certaines cartes portent un logiciel interne. Le relire ou le réécrire se fait avec l'outil prévu par le fabricant, souvent du type ST-Link ou une liaison UART. Ce n'est pas anodin : une écriture interrompue peut rendre la carte inutilisable, une mauvaise version ne correspond pas au moteur, et les réglages d'origine peuvent être perdus. On ne le fait qu'avec le fichier destiné à cette carte, et on le dit au client avant.
           </p>
+          <div class="mt-3">
+            <PhotoFigure file="usb-board.jpg" altKey="guide.shots.firmware" alt="Carte électronique avec un port USB, du type d'outil branché pour lire un programme." author="Tanha Tamanna Syed" href="https://www.pexels.com/photo/close-up-of-electronic-circuit-board-with-usb-port-35652419/" />
+          </div>
         </div>
       </div>
     </div>

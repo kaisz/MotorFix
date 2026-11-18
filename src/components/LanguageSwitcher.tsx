@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
       role="group"
       aria-label={t(locale, "languageLabel")}
       dir="ltr"
-      className="flex items-center gap-1"
+      className="flex shrink-0 flex-nowrap items-center gap-1"
     >
       {options.map((option) => {
         const active = locale === option.id;
