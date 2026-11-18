@@ -124,6 +124,11 @@ html.dark :is(h1, h2, h3, h4) {
   color: #e0c48a;
 }
 
+/* Headings are colored outside Tailwind’s layers, so this keeps payment and maintenance titles white. */
+html.dark :is(#maintenance, #paiement) :is(h1, h2, h3, h4, p) {
+  color: #ffffff;
+}
+
 html {
   scroll-behavior: smooth;
 }

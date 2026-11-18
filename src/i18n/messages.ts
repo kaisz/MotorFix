@@ -161,6 +161,7 @@ const fr = {
     heading: "Envoyez vos photos sur WhatsApp : nous estimons avant tout appel.",
     lead: "Photographiez le moteur, la plaque et le problème. MotorFix prépare une estimation à partir de ces images, avant d’appeler — ensuite, c’est plus compliqué.",
     note: "Un seul bouton, le temps d’ajouter le vrai numéro WhatsApp.",
+    phone: "+216 20 535 769",
     button: "Envoyer mes photos sur WhatsApp",
     disclaimer:
       "Le support ne concerne pas tous les moteurs. Envoyez d'abord des photos pour que nous puissions l'étudier, avant tout engagement.",
@@ -328,6 +329,7 @@ export const messages = {
       heading: "Send your photos on WhatsApp: we estimate before any call.",
       lead: "Photograph the motor, the nameplate, and the problem. MotorFix prepares an estimate from these pictures before calling — after that, it gets more complicated.",
       note: "A single button, until the real WhatsApp number is added.",
+      phone: "+216 20 535 769",
       button: "Send my photos on WhatsApp",
       disclaimer:
         "Support does not cover every motor. Send photos first so we can look into it, before any commitment.",
@@ -492,6 +494,7 @@ export const messages = {
       heading: "أرسل صورك عبر واتساب: نُعدّ التقدير قبل أي اتصال.",
       lead: "صوّر المحرك ولوحة البيانات والمشكلة. يُعد MotorFix تقديرًا من هذه الصور قبل الاتصال — بعد ذلك يصبح الأمر أكثر تعقيدًا.",
       note: "زر واحد، إلى حين إضافة رقم واتساب الحقيقي.",
+      phone: "21620535769",
       button: "إرسال صوري عبر واتساب",
       disclaimer: "لا يشمل الدعم جميع المحركات. أرسل الصور أولًا حتى نتمكن من دراستها، قبل أي التزام.",
     },
