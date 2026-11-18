@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import MotorExplorer from "../components/MotorExplorer.astro";
+
+const whatsappUrl = "https://wa.me/TON_NUMERO_WHATSAPP";
+---
+
+<Layout
+  title="MotorFix — réparation de moteurs électriques"
+  description="MotorFix répare les moteurs électriques : appareils ménagers, scooters, trottinettes et véhicules électriques. Activité en cours de développement. Contact WhatsApp pour envoyer des photos et obtenir une estimation."
+>
+  <div class="sticky top-0 z-50">
+    <p class="bg-copper px-4 py-2 text-center text-sm font-semibold text-paper">
+      Site en cours de construction — ouverture progressive de l’atelier.
+    </p>
+    <SiteHeader />
+  </div>
+
+  <main id="contenu">
+    <section id="accueil" class="scroll-mt-36">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-20">
+        <div>
+          <p class="text-sm font-semibold tracking-[0.16em] text-pine uppercase">Atelier de moteurs électriques</p>
+          <h1 class="mt-3 max-w-xl font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
+            MotorFix remet les moteurs en mouvement.
+          </h1>
+          <p class="mt-5 max-w-xl text-lg leading-8 text-muted">
+            L'activité est en cours de développement. Le site présente déjà les familles de moteurs que l’atelier couvre, de la maison jusqu’au véhicule électrique.
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="#moteurs"
+              class="inline-flex items-center justify-center rounded-full bg-pine px-5 py-3 text-sm font-semibold text-cream shadow-sm transition hover:bg-pine-deep"
+            >
+              Parcourir les moteurs
+            </a>
+            <a
+              href="#contact"
+              class="inline-flex items-center justify-center rounded-full border border-line bg-paper px-5 py-3 text-sm font-semibold transition hover:border-copper/40"
+            >
+              Envoyer des photos
+            </a>
+          </div>
+        </div>
+
+        <div class="relative overflow-hidden rounded-[2rem] border border-line bg-pine-deep p-8 text-cream shadow-[0_24px_60px_-36px_rgba(19,51,40,0.8)]">
+          <div class="absolute -top-16 -right-10 h-48 w-48 rounded-full bg-copper/30 blur-2xl" aria-hidden="true"></div>
+          <svg viewBox="0 0 200 200" class="relative mx-auto h-44 w-44" aria-hidden="true">
+            <circle cx="100" cy="100" r="78" fill="none" stroke="#e7b089" stroke-width="3" />
+            <circle cx="100" cy="100" r="52" fill="none" stroke="#f4efe6" stroke-width="8" stroke-dasharray="8 10" />
+            <circle cx="100" cy="100" r="18" fill="#c4622d" />
+            <path d="M100 8v24M100 168v24M8 100h24M168 100h24" stroke="#f4efe6" stroke-width="6" stroke-linecap="round" />
+          </svg>
+          <p class="relative mt-6 font-display text-2xl font-semibold">Quatre familles, un même geste</p>
+          <p class="relative mt-2 text-sm leading-6 text-cream/80">
+            Appareils ménagers, scooters électriques, trottinettes et véhicules électriques.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+      <MotorExplorer />
+
+      <section id="maintenance" class="scroll-mt-36 mt-16 rounded-[1.8rem] border border-line bg-sand/70 p-6 sm:p-8">
+        <p class="text-sm font-semibold tracking-[0.16em] text-copper-dark uppercase">Maintenance</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Un relais, le temps de l’ouverture</h2>
+        <p class="mt-4 max-w-3xl text-base leading-7">
+          Nous disposons déjà de certains contacts pour assurer la maintenance, contre une commission. Le suivi se précise avec les photos du moteur, avant d’organiser la suite.
+        </p>
+      </section>
+
+      <section id="paiement" class="scroll-mt-36 mt-8 rounded-[1.8rem] border border-dashed border-copper/40 bg-paper p-6 sm:p-8">
+        <p class="text-sm font-semibold tracking-[0.16em] text-copper-dark uppercase">Paiement</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Bientôt disponible</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-muted">
+          Le moyen de paiement sera choisi plus tard. Aucun règlement n’est possible sur ce site pour le moment : cette section reste un emplacement, le temps de trancher.
+        </p>
+      </section>
+
+      <section id="contact" class="scroll-mt-36 mt-8 overflow-hidden rounded-[1.8rem] bg-pine text-cream">
+        <div class="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div>
+            <p class="text-sm font-semibold tracking-[0.16em] text-sand uppercase">WhatsApp</p>
+            <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+              Envoyez vos photos sur WhatsApp : nous estimons avant tout appel.
+            </h2>
+            <p class="mt-4 max-w-xl text-sm leading-7 text-cream/80">
+              Photographiez le moteur, la plaque et le problème. MotorFix prépare une estimation à partir de ces images, avant d’appeler — ensuite, c’est plus compliqué.
+            </p>
+            <p class="mt-4 text-xs text-sand">
+              Numéro à remplacer : TON_NUMERO_WHATSAPP
+            </p>
+          </div>
+          <div class="rounded-[1.4rem] bg-paper p-5 text-ink">
+            <p class="text-sm leading-6 text-muted">
+              Un seul bouton, le temps d’ajouter le vrai numéro WhatsApp.
+            </p>
+            <!-- Remplacer TON_NUMERO_WHATSAPP par le numéro international, sans + ni espaces. -->
+            <a
+              href={whatsappUrl}
+              class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1f7a45] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#17653a]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span aria-hidden="true">●</span>
+              Envoyer mes photos sur WhatsApp
+            </a>
+            <p class="mt-3 break-all text-xs text-muted">{whatsappUrl}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-line px-4 py-8 text-center text-sm text-muted sm:px-6">
+    <p class="font-display text-lg text-ink">MotorFix</p>
+    <p class="mt-1">Réparation de moteurs électriques · en cours de construction</p>
+  </footer>
+</Layout>

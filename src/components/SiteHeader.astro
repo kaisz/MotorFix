@@ -1,0 +1,83 @@
+---
+const links = [
+  { href: "#accueil", label: "Accueil" },
+  { href: "#moteurs", label: "Moteurs" },
+  { href: "#maintenance", label: "Maintenance" },
+  { href: "#paiement", label: "Paiement" },
+  { href: "#contact", label: "WhatsApp" },
+];
+---
+
+<header class="border-b border-line/80 bg-cream/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <a href="#accueil" class="group flex items-center gap-3">
+      <span
+        class="grid h-10 w-10 place-items-center rounded-2xl bg-pine text-sm font-semibold text-cream shadow-sm"
+        aria-hidden="true"
+      >
+        M
+      </span>
+      <span class="leading-tight">
+        <span class="block font-display text-lg font-semibold tracking-tight">MotorFix</span>
+        <span class="block text-xs text-muted">Moteurs électriques</span>
+      </span>
+    </a>
+
+    <button
+      type="button"
+      class="inline-flex items-center rounded-full border border-line bg-paper px-3 py-2 text-sm font-medium md:hidden"
+      data-nav-toggle
+      aria-expanded="false"
+      aria-controls="navigation"
+    >
+      Menu
+    </button>
+
+    <nav id="navigation" class="hidden items-center gap-1 md:flex" data-nav>
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-full px-3 py-2 text-sm font-medium text-ink/80 transition hover:bg-sand hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  <nav id="navigation-mobile" class="hidden border-t border-line px-4 py-3 md:hidden" data-nav-panel>
+    <ul class="grid gap-1">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="block rounded-2xl px-3 py-2 text-sm font-medium hover:bg-sand"
+              data-nav-link
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const panel = document.querySelector("[data-nav-panel]");
+
+  toggle?.addEventListener("click", () => {
+    const open = panel?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  document.querySelectorAll("[data-nav-link]").forEach((link) => {
+    link.addEventListener("click", () => {
+      panel?.classList.add("hidden");
+      toggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+</script>
