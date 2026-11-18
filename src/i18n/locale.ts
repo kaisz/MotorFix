@@ -52,6 +52,12 @@ export function applyLocale(locale: Locale) {
     element.textContent = t(locale, key);
   });
 
+  document.querySelectorAll<HTMLElement>("[data-i18n-alt]").forEach((element) => {
+    const key = element.dataset.i18nAlt;
+    if (!key) return;
+    element.setAttribute("alt", t(locale, key));
+  });
+
   document.title = t(locale, "meta.title");
   const description = document.querySelector('meta[name="description"]');
   if (description) description.setAttribute("content", t(locale, "meta.description"));

@@ -6,6 +6,8 @@ import { Button } from "./ui/button.tsx";
 const links = [
   { href: "#accueil", label: "Accueil", key: "nav.home" },
   { href: "#moteurs", label: "Moteurs", key: "nav.motors" },
+  { href: "#fonctionnement", label: "Comment ça fonctionne", key: "nav.how" },
+  { href: "#reparation", label: "Comment ça se répare", key: "nav.repair" },
   { href: "#maintenance", label: "Maintenance", key: "nav.maintenance" },
   { href: "#paiement", label: "Paiement", key: "nav.payment" },
   { href: "#contact", label: "WhatsApp", key: "nav.whatsapp" },
@@ -31,7 +33,7 @@ const links = [
       <LanguageSwitcher client:load />
       <ThemeToggle client:load />
 
-      <nav id="navigation" class="hidden items-center gap-1 md:flex" data-nav>
+      <nav id="navigation" class="hidden max-w-3xl flex-wrap items-center justify-end gap-1 md:flex" data-nav>
         {
           links.map((link) => (
             <a
