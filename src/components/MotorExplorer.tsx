@@ -72,7 +72,7 @@ export default function MotorExplorer() {
   return (
     <section id="moteurs" className="scroll-mt-36">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-        <div className="max-w-2xl">
+        <div>
           <p className="text-sm font-semibold tracking-[0.16em] text-primary uppercase dark:text-primary-foreground">
             {copy.kicker}
           </p>

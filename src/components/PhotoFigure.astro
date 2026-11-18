@@ -3,15 +3,13 @@ interface Props {
   file: string;
   altKey: string;
   alt: string;
-  author: string;
-  href: string;
 }
 
-const { file, altKey, alt, author, href } = Astro.props;
+const { file, altKey, alt } = Astro.props;
 const src = `${import.meta.env.BASE_URL}images/stock/${file}`;
 ---
 
-<figure class="overflow-hidden rounded-[1.2rem] border border-aluminum bg-muted">
+<figure class="overflow-hidden rounded-[1.2rem] border border-aluminum bg-muted" style="max-width: 5cm">
   <img
     src={src}
     alt={alt}
@@ -19,11 +17,7 @@ const src = `${import.meta.env.BASE_URL}images/stock/${file}`;
     width="1200"
     height="800"
     loading="lazy"
-    class="aspect-[4/3] w-full object-cover"
+    style="max-width: 5cm; height: auto"
+    class="block w-full"
   />
-  <figcaption class="px-3 py-2 text-xs leading-5 text-muted-foreground">
-    <span data-i18n="credits.photo">Photo</span>
-    <span>: </span>
-    <a href={href} class="underline" target="_blank" rel="noopener noreferrer">{author}</a>
-  </figcaption>
 </figure>
