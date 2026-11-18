@@ -23,4 +23,4 @@ Dans `astro.config.mjs` :
 
 La source GitHub Pages du dépôt doit être **GitHub Actions**. L’adresse publique est [https://kaisz.github.io/MotorFix](https://kaisz.github.io/MotorFix).
 
-Le numéro WhatsApp n’est pas encore renseigné. Remplacez le placeholder `TON_NUMERO_WHATSAPP` dans `src/pages/index.astro` (lien `https://wa.me/TON_NUMERO_WHATSAPP`).
+Le contact se fait uniquement par WhatsApp : [+216 20 535 769](https://wa.me/21620535769).

@@ -14,8 +14,27 @@ const canonical = new URL(base, Astro.site);
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
   <head>
+    <script is:inline>
+      (function () {
+        try {
+          var storedTheme = localStorage.getItem("motorfix-theme");
+          var theme =
+            storedTheme === "light" || storedTheme === "dark"
+              ? storedTheme
+              : window.matchMedia("(prefers-color-scheme: dark)").matches
+                ? "dark"
+                : "light";
+          document.documentElement.classList.toggle("dark", theme === "dark");
+          var lang = localStorage.getItem("motorfix-lang");
+          if (lang === "en" || lang === "ar") {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
@@ -25,17 +44,23 @@ const canonical = new URL(base, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Outfit:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="min-h-screen text-ink antialiased">
+  <body class="min-h-screen text-foreground antialiased">
     <a
       href="#contenu"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-paper focus:px-4 focus:py-2"
+      class="sr-only text-foreground focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[60] focus:rounded-full focus:bg-card focus:px-4 focus:py-2 focus:ring-2 focus:ring-ring"
+      data-i18n="skip"
     >
       Aller au contenu
     </a>
     <slot />
+    <script>
+      import { applyLocale, getLocale } from "../i18n/locale";
+
+      applyLocale(getLocale());
+    </script>
   </body>
 </html>

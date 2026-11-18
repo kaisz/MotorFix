@@ -1,34 +1,127 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.75rem;
+  --background: #f6f4ef;
+  --foreground: #1c2430;
+  --card: #ffffff;
+  --card-foreground: #1c2430;
+  --popover: #ffffff;
+  --popover-foreground: #1c2430;
+  --primary: #0b1f33;
+  --primary-foreground: #f8fafc;
+  --secondary: #f3f1eb;
+  --secondary-foreground: #1c2430;
+  --muted: #f3f1eb;
+  --muted-foreground: #5c6570;
+  --accent: #2f6bff;
+  --accent-foreground: #f8fafc;
+  --border: #e4e0d6;
+  --input: #e4e0d6;
+  --ring: #2f6bff;
+  --banner: #fef3c7;
+  --banner-foreground: #b45309;
+  --whatsapp: #128c7e;
+  --whatsapp-foreground: #ffffff;
+  --copper: #b87333;
+  --aluminum: #c5ccd6;
+  --aluminum-deep: #8e979f;
+}
+
+.dark {
+  --background: #07111c;
+  --foreground: #f8fafc;
+  --card: #0b1f33;
+  --card-foreground: #f8fafc;
+  --popover: #0b1f33;
+  --popover-foreground: #f8fafc;
+  --primary: #0b1f33;
+  --primary-foreground: #f8fafc;
+  --secondary: #132c44;
+  --secondary-foreground: #f8fafc;
+  --muted: #132c44;
+  --muted-foreground: #c5ccd6;
+  --accent: #2f6bff;
+  --accent-foreground: #f8fafc;
+  --border: #2a3e54;
+  --input: #2a3e54;
+  --ring: #2f6bff;
+  --banner: #fef3c7;
+  --banner-foreground: #b45309;
+  --whatsapp: #128c7e;
+  --whatsapp-foreground: #ffffff;
+  --copper: #b87333;
+  --aluminum: #c5ccd6;
+  --aluminum-deep: #8e979f;
+}
+
 @theme {
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-sans: "Outfit", "Segoe UI", sans-serif;
-  --color-cream: #f3eee4;
-  --color-paper: #fffdf8;
-  --color-ink: #1c1915;
-  --color-muted: #5c5348;
-  --color-copper: #c4622d;
-  --color-copper-dark: #8c3f14;
-  --color-pine: #1e4a38;
-  --color-pine-deep: #133328;
-  --color-sand: #e6d9c6;
-  --color-line: #ddcfbb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-banner: var(--banner);
+  --color-banner-foreground: var(--banner-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-copper: var(--copper);
+  --color-aluminum: var(--aluminum);
+  --color-aluminum-deep: var(--aluminum-deep);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background:
+      radial-gradient(1200px 500px at 90% -10%, rgb(47 107 255 / 10%), transparent 55%),
+      radial-gradient(900px 420px at -10% 20%, rgb(11 31 51 / 8%), transparent 50%),
+      var(--background);
+    color: var(--foreground);
+  }
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: var(--font-sans);
-  background:
-    radial-gradient(1200px 500px at 90% -10%, rgb(196 98 45 / 16%), transparent 55%),
-    radial-gradient(900px 420px at -10% 20%, rgb(30 74 56 / 10%), transparent 50%),
-    var(--color-cream);
-  color: var(--color-ink);
+html.dark {
+  color-scheme: dark;
+}
+
+html[lang="ar"] body,
+html[lang="ar"] .font-display {
+  font-family: "Noto Sans Arabic", var(--font-sans);
 }
 
 ::selection {
-  background: #e7b089;
-  color: #1c1915;
+  background: var(--accent);
+  color: var(--accent-foreground);
 }

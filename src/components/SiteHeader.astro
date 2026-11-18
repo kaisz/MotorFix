@@ -1,59 +1,73 @@
 ---
+import LanguageSwitcher from "./LanguageSwitcher.tsx";
+import ThemeToggle from "./ThemeToggle.tsx";
+import { Button } from "./ui/button.tsx";
+
 const links = [
-  { href: "#accueil", label: "Accueil" },
-  { href: "#moteurs", label: "Moteurs" },
-  { href: "#maintenance", label: "Maintenance" },
-  { href: "#paiement", label: "Paiement" },
-  { href: "#contact", label: "WhatsApp" },
+  { href: "#accueil", label: "Accueil", key: "nav.home" },
+  { href: "#moteurs", label: "Moteurs", key: "nav.motors" },
+  { href: "#maintenance", label: "Maintenance", key: "nav.maintenance" },
+  { href: "#paiement", label: "Paiement", key: "nav.payment" },
+  { href: "#contact", label: "WhatsApp", key: "nav.whatsapp" },
 ];
 ---
 
-<header class="border-b border-line/80 bg-cream/90 backdrop-blur-md">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-    <a href="#accueil" class="group flex items-center gap-3">
+<header class="border-b border-aluminum bg-background/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
+    <a href="#accueil" class="group flex min-w-0 items-center gap-3 text-foreground">
       <span
-        class="grid h-10 w-10 place-items-center rounded-2xl bg-pine text-sm font-semibold text-cream shadow-sm"
+        class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-primary text-sm font-semibold text-primary-foreground shadow-sm ring-1 ring-aluminum"
         aria-hidden="true"
       >
         M
       </span>
       <span class="leading-tight">
         <span class="block font-display text-lg font-semibold tracking-tight">MotorFix</span>
-        <span class="block text-xs text-muted">Moteurs électriques</span>
+        <span class="hidden text-xs text-muted-foreground sm:block" data-i18n="brand.tagline">Moteurs électriques</span>
       </span>
     </a>
 
-    <button
-      type="button"
-      class="inline-flex items-center rounded-full border border-line bg-paper px-3 py-2 text-sm font-medium md:hidden"
-      data-nav-toggle
-      aria-expanded="false"
-      aria-controls="navigation"
-    >
-      Menu
-    </button>
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <LanguageSwitcher client:load />
+      <ThemeToggle client:load />
 
-    <nav id="navigation" class="hidden items-center gap-1 md:flex" data-nav>
-      {
-        links.map((link) => (
-          <a
-            href={link.href}
-            class="rounded-full px-3 py-2 text-sm font-medium text-ink/80 transition hover:bg-sand hover:text-ink"
-          >
-            {link.label}
-          </a>
-        ))
-      }
-    </nav>
+      <nav id="navigation" class="hidden items-center gap-1 md:flex" data-nav>
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              data-i18n={link.key}
+              class="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <Button
+        type="button"
+        variant="outline"
+        size="sm"
+        className="rounded-full md:hidden"
+        data-nav-toggle
+        data-i18n="nav.menu"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        Menu
+      </Button>
+    </div>
   </div>
-  <nav id="navigation-mobile" class="hidden border-t border-line px-4 py-3 md:hidden" data-nav-panel>
+  <nav id="navigation-mobile" class="hidden border-t border-aluminum px-4 py-3 md:hidden" data-nav-panel>
     <ul class="grid gap-1">
       {
         links.map((link) => (
           <li>
             <a
               href={link.href}
-              class="block rounded-2xl px-3 py-2 text-sm font-medium hover:bg-sand"
+              data-i18n={link.key}
+              class="block rounded-2xl px-3 py-2 text-sm font-medium text-foreground hover:bg-muted"
               data-nav-link
             >
               {link.label}

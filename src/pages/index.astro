@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
-import MotorExplorer from "../components/MotorExplorer.astro";
+import MotorExplorer from "../components/MotorExplorer.tsx";
+import { Button } from "../components/ui/button.tsx";
 
-const whatsappUrl = "https://wa.me/TON_NUMERO_WHATSAPP";
+const whatsappUrl = "https://wa.me/21620535769";
 ---
 
 <Layout
@@ -11,7 +12,7 @@ const whatsappUrl = "https://wa.me/TON_NUMERO_WHATSAPP";
   description="MotorFix répare les moteurs électriques : appareils ménagers, scooters, trottinettes et véhicules électriques. Activité en cours de développement. Contact WhatsApp pour envoyer des photos et obtenir une estimation."
 >
   <div class="sticky top-0 z-50">
-    <p class="bg-copper px-4 py-2 text-center text-sm font-semibold text-paper">
+    <p class="bg-banner px-4 py-2 text-center text-sm font-semibold text-banner-foreground" data-i18n="banner">
       Site en cours de construction — ouverture progressive de l’atelier.
     </p>
     <SiteHeader />
@@ -21,39 +22,35 @@ const whatsappUrl = "https://wa.me/TON_NUMERO_WHATSAPP";
     <section id="accueil" class="scroll-mt-36">
       <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-20">
         <div>
-          <p class="text-sm font-semibold tracking-[0.16em] text-pine uppercase">Atelier de moteurs électriques</p>
-          <h1 class="mt-3 max-w-xl font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl">
+          <p class="text-sm font-semibold tracking-[0.16em] text-primary uppercase dark:text-primary-foreground" data-i18n="hero.kicker">Atelier de moteurs électriques</p>
+          <h1 class="mt-3 max-w-xl font-display text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl" data-i18n="hero.title">
             MotorFix remet les moteurs en mouvement.
           </h1>
-          <p class="mt-5 max-w-xl text-lg leading-8 text-muted">
+          <div class="mt-4 h-px w-24 bg-copper" aria-hidden="true"></div>
+          <p class="mt-5 max-w-xl text-lg leading-8 text-muted-foreground" data-i18n="hero.lead">
             L'activité est en cours de développement. Le site présente déjà les familles de moteurs que l’atelier couvre, de la maison jusqu’au véhicule électrique.
           </p>
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#moteurs"
-              class="inline-flex items-center justify-center rounded-full bg-pine px-5 py-3 text-sm font-semibold text-cream shadow-sm transition hover:bg-pine-deep"
-            >
-              Parcourir les moteurs
-            </a>
-            <a
-              href="#contact"
-              class="inline-flex items-center justify-center rounded-full border border-line bg-paper px-5 py-3 text-sm font-semibold transition hover:border-copper/40"
-            >
-              Envoyer des photos
-            </a>
+            <Button asChild size="lg" className="rounded-full px-5">
+              <a href="#moteurs" data-i18n="hero.browse">Parcourir les moteurs</a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full px-5">
+              <a href="#contact" data-i18n="hero.photos">Envoyer des photos</a>
+            </Button>
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-[2rem] border border-line bg-pine-deep p-8 text-cream shadow-[0_24px_60px_-36px_rgba(19,51,40,0.8)]">
-          <div class="absolute -top-16 -right-10 h-48 w-48 rounded-full bg-copper/30 blur-2xl" aria-hidden="true"></div>
+        <div class="relative overflow-hidden rounded-[2rem] border border-aluminum bg-primary p-8 text-primary-foreground shadow-[0_24px_60px_-36px_rgba(11,31,51,0.8)]">
+          <div class="absolute -top-16 -right-10 h-48 w-48 rounded-full bg-accent/25 blur-2xl" aria-hidden="true"></div>
           <svg viewBox="0 0 200 200" class="relative mx-auto h-44 w-44" aria-hidden="true">
-            <circle cx="100" cy="100" r="78" fill="none" stroke="#e7b089" stroke-width="3" />
-            <circle cx="100" cy="100" r="52" fill="none" stroke="#f4efe6" stroke-width="8" stroke-dasharray="8 10" />
-            <circle cx="100" cy="100" r="18" fill="#c4622d" />
-            <path d="M100 8v24M100 168v24M8 100h24M168 100h24" stroke="#f4efe6" stroke-width="6" stroke-linecap="round" />
+            <circle cx="100" cy="100" r="78" fill="none" class="text-aluminum" stroke="currentColor" stroke-width="2" />
+            <circle cx="100" cy="100" r="52" fill="none" class="text-aluminum-deep" stroke="currentColor" stroke-width="6" stroke-dasharray="8 10" />
+            <circle cx="100" cy="100" r="28" fill="none" class="text-copper" stroke="currentColor" stroke-width="2" />
+            <circle cx="100" cy="100" r="5" class="text-copper" fill="currentColor" />
+            <path d="M100 8v24M100 168v24M8 100h24M168 100h24" class="text-aluminum-deep" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
           </svg>
-          <p class="relative mt-6 font-display text-2xl font-semibold">Quatre familles, un même geste</p>
-          <p class="relative mt-2 text-sm leading-6 text-cream/80">
+          <p class="relative mt-6 font-display text-2xl font-semibold" data-i18n="hero.cardTitle">Quatre familles, un même geste</p>
+          <p class="relative mt-2 text-sm leading-6 text-primary-foreground/80" data-i18n="hero.cardText">
             Appareils ménagers, scooters électriques, trottinettes et véhicules électriques.
           </p>
         </div>
@@ -61,61 +58,59 @@ const whatsappUrl = "https://wa.me/TON_NUMERO_WHATSAPP";
     </section>
 
     <div class="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-      <MotorExplorer />
+      <MotorExplorer client:load />
 
-      <section id="maintenance" class="scroll-mt-36 mt-16 rounded-[1.8rem] border border-line bg-sand/70 p-6 sm:p-8">
-        <p class="text-sm font-semibold tracking-[0.16em] text-copper-dark uppercase">Maintenance</p>
-        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Un relais, le temps de l’ouverture</h2>
-        <p class="mt-4 max-w-3xl text-base leading-7">
+      <section id="maintenance" class="scroll-mt-36 mt-16 rounded-[1.8rem] border border-aluminum bg-muted p-6 sm:p-8">
+        <p class="text-sm font-semibold tracking-[0.16em] text-primary uppercase dark:text-primary-foreground" data-i18n="maintenance.kicker">Maintenance</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight" data-i18n="maintenance.heading">Un relais, le temps de l’ouverture</h2>
+        <p class="mt-4 max-w-3xl text-base leading-7" data-i18n="maintenance.text">
           Nous disposons déjà de certains contacts pour assurer la maintenance, contre une commission. Le suivi se précise avec les photos du moteur, avant d’organiser la suite.
         </p>
       </section>
 
-      <section id="paiement" class="scroll-mt-36 mt-8 rounded-[1.8rem] border border-dashed border-copper/40 bg-paper p-6 sm:p-8">
-        <p class="text-sm font-semibold tracking-[0.16em] text-copper-dark uppercase">Paiement</p>
-        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight">Bientôt disponible</h2>
-        <p class="mt-4 max-w-3xl leading-7 text-muted">
+      <section id="paiement" class="scroll-mt-36 mt-8 rounded-[1.8rem] border border-dashed border-aluminum bg-card p-6 sm:p-8">
+        <p class="text-sm font-semibold tracking-[0.16em] text-primary uppercase dark:text-primary-foreground" data-i18n="payment.kicker">Paiement</p>
+        <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight" data-i18n="payment.heading">Bientôt disponible</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-muted-foreground" data-i18n="payment.text">
           Le moyen de paiement sera choisi plus tard. Aucun règlement n’est possible sur ce site pour le moment : cette section reste un emplacement, le temps de trancher.
         </p>
       </section>
 
-      <section id="contact" class="scroll-mt-36 mt-8 overflow-hidden rounded-[1.8rem] bg-pine text-cream">
+      <section id="contact" class="scroll-mt-36 mt-8 overflow-hidden rounded-[1.8rem] bg-primary text-primary-foreground">
         <div class="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
           <div>
-            <p class="text-sm font-semibold tracking-[0.16em] text-sand uppercase">WhatsApp</p>
-            <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            <p class="text-sm font-semibold tracking-[0.16em] text-primary-foreground/80 uppercase" data-i18n="contact.kicker">WhatsApp</p>
+            <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl" data-i18n="contact.heading">
               Envoyez vos photos sur WhatsApp : nous estimons avant tout appel.
             </h2>
-            <p class="mt-4 max-w-xl text-sm leading-7 text-cream/80">
+            <p class="mt-4 max-w-xl text-sm leading-7 text-primary-foreground/80" data-i18n="contact.lead">
               Photographiez le moteur, la plaque et le problème. MotorFix prépare une estimation à partir de ces images, avant d’appeler — ensuite, c’est plus compliqué.
             </p>
-            <p class="mt-4 text-xs text-sand">
-              Numéro à remplacer : TON_NUMERO_WHATSAPP
+            <p class="mt-4 text-sm font-semibold tracking-wide text-primary-foreground">
+              +216 20 535 769
             </p>
           </div>
-          <div class="rounded-[1.4rem] bg-paper p-5 text-ink">
-            <p class="text-sm leading-6 text-muted">
+          <div class="rounded-[1.4rem] border border-aluminum bg-card p-5 text-foreground">
+            <p class="text-sm leading-6 text-muted-foreground" data-i18n="contact.note">
               Un seul bouton, le temps d’ajouter le vrai numéro WhatsApp.
             </p>
-            <!-- Remplacer TON_NUMERO_WHATSAPP par le numéro international, sans + ni espaces. -->
-            <a
-              href={whatsappUrl}
-              class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#1f7a45] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#17653a]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span aria-hidden="true">●</span>
-              Envoyer mes photos sur WhatsApp
-            </a>
-            <p class="mt-3 break-all text-xs text-muted">{whatsappUrl}</p>
+            <Button asChild className="mt-4 h-auto w-full rounded-full bg-whatsapp px-5 py-3 text-sm font-semibold text-whatsapp-foreground shadow-sm hover:bg-whatsapp/90">
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                <span aria-hidden="true">●</span>
+                <span data-i18n="contact.button">Envoyer mes photos sur WhatsApp</span>
+              </a>
+            </Button>
+            <p class="mt-4 text-sm leading-6 text-foreground" data-i18n="contact.disclaimer">
+              Le support ne concerne pas tous les moteurs. Envoyez d'abord des photos pour que nous puissions l'étudier, avant tout engagement.
+            </p>
           </div>
         </div>
       </section>
     </div>
   </main>
 
-  <footer class="border-t border-line px-4 py-8 text-center text-sm text-muted sm:px-6">
-    <p class="font-display text-lg text-ink">MotorFix</p>
-    <p class="mt-1">Réparation de moteurs électriques · en cours de construction</p>
+  <footer class="border-t border-aluminum px-4 py-8 text-center text-sm text-muted-foreground sm:px-6">
+    <p class="font-display text-lg text-foreground">MotorFix</p>
+    <p class="mt-1" data-i18n="footer.line">Réparation de moteurs électriques · en cours de construction</p>
   </footer>
 </Layout>
